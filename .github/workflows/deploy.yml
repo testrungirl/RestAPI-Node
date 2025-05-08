@@ -5,10 +5,10 @@ on:
       - main
       - dev
 env:
-  MONGODB_CLUSTER_ADDRESS:cluster0.vw4yi0j.mongodb.net
-  MONGODB_USERNAME:RESTAPI-NODE
-  MONGODB_PASSWORD:9k865YyjTBvGiHaI
-  #MONGODB_DB_NAME:
+  MONGODB_CLUSTER_ADDRESS: cluster0.vw4yi0j.mongodb.net
+  MONGODB_USERNAME: RESTAPI-NODE
+  MONGODB_PASSWORD: 9k865YyjTBvGiHaI
+  # MONGODB_DB_NAME:  # Commented out, adjust as needed
   PORT: 7075
 jobs:
   test:
