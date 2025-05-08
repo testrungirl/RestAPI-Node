@@ -6,8 +6,8 @@ on:
       - dev
 env:
   MONGODB_CLUSTER_ADDRESS: cluster0.vw4yi0j.mongodb.net
-  MONGODB_USERNAME: RESTAPI-NODE
-  MONGODB_PASSWORD: 9k865YyjTBvGiHaI
+  MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+  MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
   # MONGODB_DB_NAME:  # Commented out, adjust as needed
   PORT: 7075
 jobs:
@@ -38,4 +38,5 @@ jobs:
     steps:
       - name: Output information
         run: |        
-          echo "..."
+          echo MONGODB_USERNAME: $MONGODB_USERNAME"
+          echo MONGODB_PASSWORD: $MONGODB_PASSWORD"
