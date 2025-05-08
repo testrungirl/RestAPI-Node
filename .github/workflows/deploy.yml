@@ -4,6 +4,12 @@ on:
     branches:
       - main
       - dev
+env:
+  MONGODB_CLUSTER_ADDRESS:cluster0.vw4yi0j.mongodb.net
+  MONGODB_USERNAME:RESTAPI-NODE
+  MONGODB_PASSWORD:9k865YyjTBvGiHaI
+  MONGODB_DB_NAME:
+  PORT: 7075
 jobs:
   test:
     environment: testing
@@ -16,10 +22,12 @@ jobs:
         with:
           path: ~/.npm
           key: npm-deps-${{ hashFiles('**/package-lock.json') }}
+      - name: Show NPM cache path contents
+        run: ls -la ~/.npm
       - name: Install dependencies
         run: npm ci
       - name: Run server
-        run: npm start & npx wait-on http://127.0.0.1:XYZ
+        run: npm start & npx wait-on http://127.0.0.1:$PORT
       - name: Run tests
         run: npm test
       - name: Output information

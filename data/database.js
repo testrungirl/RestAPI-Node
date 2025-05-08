@@ -1,4 +1,7 @@
 import { MongoClient } from 'mongodb';
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 const clusterAddress = process.env.MONGODB_CLUSTER_ADDRESS;
 const dbUser = process.env.MONGODB_USERNAME;
@@ -9,7 +12,7 @@ const uri = `mongodb+srv://${dbUser}:${dbPassword}@${clusterAddress}/?retryWrite
 const client = new MongoClient(uri);
 
 console.log('Trying to connect to db');
-
+console.log('DbUser:', dbUser);
 try {
   await client.connect();
   await client.db(dbName).command({ ping: 1 });
